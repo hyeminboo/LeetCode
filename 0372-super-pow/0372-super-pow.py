@@ -7,10 +7,10 @@ class Solution:
             if n == 0:
                 return 1
             half = mod_pow(x, n // 2)
-            if n % 2 == 0:
-                return (half * half) % MOD
-            else:
-                return (half * half * x) % MOD
+            result = (half * half) % MOD
+            if n % 2 == 1:
+                return (result * x) % MOD
+            return result
         
         result = 1
         for digit in b:
