@@ -3,14 +3,14 @@ class Solution:
         MOD = 1337
 
         def mod_pow(x, n):
-            x %= MOD
-            result = 1
-            while n:
-                if n % 2 == 1:
-                    result = (x * result) % MOD
-                x = (x * x) % MOD
-                n = n // 2
-            return result
+            if n == 0:
+                return 1
+            if n % 2 == 0:
+                half = mod_pow(x, n // 2)
+                return (half * half) % MOD
+            else:
+                half = mod_pow(x, n // 2)
+                return (half * half * x) % MOD
         
         result = 1
         for digit in b:
