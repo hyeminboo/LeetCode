@@ -3,6 +3,7 @@ class Solution:
         MOD = 1337
 
         def mod_pow(x, n):
+            x %= MOD
             if n == 0:
                 return 1
             if n % 2 == 0:
