@@ -6,11 +6,10 @@ class Solution:
             x %= MOD
             if n == 0:
                 return 1
+            half = mod_pow(x, n // 2)
             if n % 2 == 0:
-                half = mod_pow(x, n // 2)
                 return (half * half) % MOD
             else:
-                half = mod_pow(x, n // 2)
                 return (half * half * x) % MOD
         
         result = 1
