@@ -4,16 +4,16 @@ class Solution:
         visited = [0] * n
 
         def dfs(city):
-            for i in range(n):
-                if isConnected[city][i] == 1 and not visited[i]:
-                    visited[i] = 1
-                    dfs(i)
-
-        provinces = 0
+            for c in range(n):
+                if isConnected[city][c] == 1 and visited[c] == 0:
+                    visited[c] = 1
+                    dfs(c)
+        
+        prov = 0
         for i in range(n):
-            if not visited[i]:
+            if visited[i] == 0:
                 visited[i] = 1
                 dfs(i)
-                provinces += 1
+                prov += 1
 
-        return provinces
+        return prov
