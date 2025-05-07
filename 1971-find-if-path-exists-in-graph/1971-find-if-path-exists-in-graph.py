@@ -16,12 +16,13 @@ class Solution:
             d[e[0]].append(e[1])
             d[e[1]].append(e[0])
         
-        used = []
+        used = set()
 
         def find(val):
-            used.append(val)
-            if destination in d[val]:
+            if val == destination:
                 return True
+
+            used.add(val)
 
             for i in d[val]:
                 if i not in used and i in d.keys():
@@ -30,5 +31,3 @@ class Solution:
             return False
 
         return find(source)
-    
-        return False
